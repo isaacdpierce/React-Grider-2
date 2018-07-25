@@ -1,7 +1,8 @@
 ## REDUX
 
-- a predictable state container for javascritp applications
-- Redux is a collection of al the data that describes the app
+- a predictable state container for javascript applications
+- Redux is a collection of all the data that describes the app
+- It holds the entire application state **NOT** the individual Components state.
 - It is a single object referred to as the state
 - Redux stores the state of the app
 - Redux core topic is reducers
@@ -13,6 +14,10 @@
 - ** RECOMMENDED to name reducer files with reducer in the title - reducer_books.js
 - Must be exported - export default function() { ... }
 - Any file that imports the created reducer will have access to it
+- ALL reducers get 2 arguments the current state and action (state, action) 
+- the state arguement is not the application state it is only the state the present reducer is responsible for
+- reducers are only ever called when an action occurs
+- most Redux reducers are set up with Javascript switch statements
 
 2 step Process:
 1) create reducer
@@ -37,3 +42,10 @@
 4) reducers can choose (depending on the action) to return a different piece of state
 5) the newly returned piece of state gets piped in to the Application state
 6) the application state gets piped into the React Application which causes all the components to re-render
+
+- bindActionCreator + dispatch makes sure the action is 'dispatched' to all the reducers
+- Actions normally have 2 values
+  1) a type
+  2) a payload - further clarifies the conditions of the action being triggered
+
+- every Action must have a type that describes the purpose of the action
